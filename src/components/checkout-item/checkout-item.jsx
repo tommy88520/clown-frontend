@@ -1,5 +1,5 @@
-import { useSelector, useDispatch } from 'react-redux';
-import { addCart, removeCart  } from '../../features/cartSlice'
+import { useDispatch } from 'react-redux';
+import { addCart, removeCart, deleteCart  } from '../../features/cartSlice'
 
 import './checkout-item.scss'
 const CheckoutItem = ({ cartItem }) => {
@@ -13,6 +13,12 @@ const CheckoutItem = ({ cartItem }) => {
     item.stopPropagation()
     dispatch(removeCart(cartItem))
   }
+
+  const deleteCartItem = (item) => {
+    item.stopPropagation()
+    dispatch(deleteCart(cartItem))
+  }
+
   return (
     <div className="checkout-item__container">
       <div className="checkout-item__image-container">
@@ -25,7 +31,7 @@ const CheckoutItem = ({ cartItem }) => {
         <div className="checkout-item__arrow" onClick={addCartItem}>&#10095;</div>
       </div>
       <span className="checkout-item__base-span">{price}</span>
-      <div className="checkout-item__remove-button" onClick={removeCartItem}>&#10005;</div>
+      <div className="checkout-item__remove-button" onClick={deleteCartItem}>&#10005;</div>
     </div>
   ) 
 }

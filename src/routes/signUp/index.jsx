@@ -19,7 +19,7 @@ const SignUp = () => {
   };
 
   const handleLogin = async () => {
-    window.open(`${process.env.REACT_APP_BACKEND_BASE_URL}google/login`, "_self");
+    window.open(`${process.env.REACT_APP_BACKEND_BASE_URL}/google/login`, "_self");
   };
   return (
     <div className="sign-up">

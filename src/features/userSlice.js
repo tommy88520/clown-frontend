@@ -89,6 +89,7 @@ export const userSlice = createSlice(
       },
       signOut: (state, { payload }) => {
         state.logIn = payload
+        state.userData = {}
         localStorage.removeItem('clownToken');
       }
     },

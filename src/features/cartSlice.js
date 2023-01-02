@@ -12,7 +12,7 @@ export const cartSlice = createSlice(
     reducers: {
       getCartData: (state) => {
         const cartData = JSON.parse(localStorage.getItem('clownCart'))
-        if(!cartData) {
+        if (!cartData) {
           state.cart = []
         } else {
           state.cart = cartData
@@ -46,11 +46,14 @@ export const cartSlice = createSlice(
         }
         localStorage.setItem('clownCart', JSON.stringify(state.cart));
       },
+      deleteCart: (state, { payload }) => {
+        state.cart = state.cart.filter(item => item.brand !== payload.brand)
+      }
     },
   },
 
 )
 
-export const { addCart, removeCart, getCartData  } = cartSlice.actions
+export const { addCart, removeCart, deleteCart, getCartData } = cartSlice.actions
 
 export default cartSlice.reducer
