@@ -48,6 +48,7 @@ export const cartSlice = createSlice(
       },
       deleteCart: (state, { payload }) => {
         state.cart = state.cart.filter(item => item.brand !== payload.brand)
+        localStorage.setItem('clownCart', JSON.stringify(state.cart));
       }
     },
   },
